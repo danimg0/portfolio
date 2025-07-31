@@ -1,0 +1,26 @@
+@import "tailwindcss";
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+@theme {
+  /* Colores principales */
+  --color-primary: #212639;        /* Azul cielo - Botones, enlaces, detalles */
+  --color-secondary: #9988f0;      /* Gris claro - Fondos secundarios y tarjetas */
+  --color-accent: #5ad1c1;         /* Llamddas a la acción */
+  
+  /* Colores de fondo */
+  --color-background: #090e20;     /* Fondo azulado - Fondo principal */
+  
+  /* Colores de texto */
+  --color-text-primary: #FFFFFF ; /* Blanco - Texto principal */
+  --color-text-secondary: #93a1b4; /* Gris medio - Texto secundario */
+  
+  /* Estados y utilidades */
+  
+  /* Bordes y divisores */
+} 

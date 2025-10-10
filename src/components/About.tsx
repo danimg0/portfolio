@@ -12,7 +12,7 @@ const AboutSection = () => {
   const [activeSection, setActiveSection] = useState(0);
 
   return (
-    <div className="flex flex-col items-center h-full">
+    <div className="flex flex-col items-center h-full w-full mx-auto px-8 md:px-40">
       <ThemedText type="h2" primary>
         About me
       </ThemedText>
@@ -75,7 +75,7 @@ export default AboutSection;
 
 const WhoIAm = () => {
   return (
-    <div className=" rounded-lg h-full w-full flex flex-col md:flex-row gap-x-8 p-8 gap-y-8 md:px-40">
+    <div className="rounded-lg h-full w-full flex flex-col md:flex-row gap-6 md:gap-8 mt-8">
       <PresentationCard
         icon={<BiBrain className="text-4xl" />}
         title="Psychology Background"
@@ -122,12 +122,12 @@ const PresentationCard = ({
 // Experience section
 const Skills = () => {
   return (
-    <div className="ring-1 ring-gray-700 rounded-lg h-full p-8 m-8">
-      <div className="h-full">
+    <div className="ring-1 ring-gray-700 rounded-lg h-full w-full mt-8 p-6 md:px-8">
+      <div className="h-full ">
         <ThemedText type="semibold" className="mb-3">
           Technical Skills
         </ThemedText>
-        <div className="flex flex-row flex-wrap justify-between gap-4 ">
+        <div className="flex flex-row flex-wrap justify-around md:justify-between md:gap-4 gap-y-4">
           <TechCard
             progress={70}
             icon={
@@ -219,7 +219,7 @@ const Skills = () => {
         <ThemedText type="semibold" className="mt-5 mb-3">
           Soft Skills
         </ThemedText>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
           <SoftSkillCard
             title="Problem Solving"
             description="Analytical approach to complex technical challenges"
@@ -253,7 +253,7 @@ const Skills = () => {
 // Education section
 const Education = () => {
   return (
-    <div className=" rounded-lg h-full w-full flex flex-col md:flex-row gap-x-8 gap-y-8 p-8 md:px-40">
+    <div className="rounded-lg h-full w-full flex flex-col md:flex-row gap-x-8 gap-y-8 py-8 ">
       <EducationCard
         title="Multiplatform Application Development"
         iconoEstudios={<GrTechnology className="text-accent" />}

@@ -10,11 +10,11 @@ import { LiaLinkedin } from "react-icons/lia";
 
 const ContactMeSection = () => {
   return (
-    <div className="flex flex-col  items-center px-4 md:px-0">
+    <div className="flex flex-col items-center w-full px-8 md:px-40">
       <ThemedText type="h2" primary>
         Contact Me
       </ThemedText>
-      <div className="flex mt-8 flex-col md:flex-row justify-center gap-8 w-full max-w-6xl">
+      <div className="flex mt-8 flex-col md:flex-row justify-center gap-8 w-full">
         {/* ====== Left Column: Contact Info ====== */}
         <div className="flex flex-col justify-between gap-6 md:w-1/2">
           <ContactCard>

@@ -16,7 +16,7 @@ interface Props {
 
 const EducationCard: React.FC<Props> = (props) => {
   return (
-    <div className="bg-gray-800 h-full md:w-1/3 flex flex-col gap-y-3 ring-1 ring-gray-700 p-4 rounded-lg">
+    <div className="bg-gray-800 h-full md:w-1/3 flex flex-col gap-y-3 ring-1 ring-gray-700 p-4 rounded-lg mx-0.5">
       {/* icono + titulo */}
       <div className="flex flex-row items-center gap-x-4">
         <div className="bg-teal-700 rounded-lg p-2">{props.iconoEstudios}</div>

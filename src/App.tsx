@@ -1,4 +1,4 @@
-import Header from "@components/Header";
+import Header from "./components/Header";
 import ThemedButton from "./components/ThemedButton";
 import ThemedCard from "./components/ThemedCard";
 import ThemedText from "./components/ThemedText";
@@ -7,6 +7,7 @@ import { BsArrowDownCircle } from "react-icons/bs";
 import { useEffect, useState } from "react";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactMeSection from "./components/ContactMeSection";
+import Footer from "./components/Footer";
 
 function App() {
   const [arrowOpacity, setArrowOpacity] = useState(1);
@@ -29,16 +30,16 @@ function App() {
 
   return (
     <div className="w-full bg-background">
-      {/* <Header /> */}
+      <Header />
       {/* Sección de presentación - Altura completa de la pantalla */}
-      <div className="h-screen flex flex-col">
+      <div className="h-[65vh] mt-10 md:min-h-screen flex flex-col  ">
         {/* Contenido principal que ocupa el resto del espacio */}
         <div
-          id="#section1"
+          id="section1"
           className="flex-1 flex flex-col items-center justify-center p-8 md:px-40"
         >
           {/* tarjeta */}
-          <ThemedCard className="flex min-h-4/5 md:h-4/6 p-7">
+          <ThemedCard className="flex md:h-4/6 p-7 ">
             {/* intro */}
             <div className="md:w-1/2 flex justify-center flex-col gap-y-4 ">
               <ThemedText type="h1" className="font-bold" primary>
@@ -59,7 +60,7 @@ function App() {
                   }}
                 >
                   <ThemedText type="semibold" primary>
-                    Contactame
+                    Contact me
                   </ThemedText>
                 </ThemedButton>
                 <ThemedButton
@@ -68,7 +69,7 @@ function App() {
                   }}
                   type="secondary"
                 >
-                  <ThemedText>Ver proyectos</ThemedText>
+                  <ThemedText>See projects</ThemedText>
                 </ThemedButton>
               </div>
             </div>
@@ -78,7 +79,7 @@ function App() {
             </div>
           </ThemedCard>
           <BsArrowDownCircle
-            className="absolute bottom-5 text-accent mt-12 transition-all duration-500 animate-bounce pointer-events-none"
+            className="absolute bottom-5 text-accent mt-12 transition-all duration-500 animate-bounce pointer-events-none hidden md:block"
             style={{ opacity: arrowOpacity }}
             size={40}
           />
@@ -88,7 +89,7 @@ function App() {
       {/* Segunda sección - About */}
       <div
         id="section2"
-        className="min-h-screen flex  justify-center py-24  bg-primary "
+        className="min-h-screen flex  justify-center py-14 md:py-24  bg-primary "
       >
         <AboutSection />
       </div>
@@ -96,14 +97,20 @@ function App() {
       {/* Tercera sección - Proyectos */}
       <div
         id="section3"
-        className="min-h-screen flex justify-center py-24 bg-background"
+        className="min-h-screen flex justify-center py-14 md:py-24 bg-background"
       >
         <ProjectsSection />
       </div>
 
-      <div id="section4" className="flex justify-center py-24 bg-primary">
+      {/* Cuarta sección - Contacto */}
+      <div
+        id="section4"
+        className="flex justify-center py-14 md:py-24 bg-primary"
+      >
         <ContactMeSection />
       </div>
+
+      <Footer />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import { LuLink } from "react-icons/lu";
 import ThemedButton from "./ThemedButton";
 import ThemedText from "./ThemedText";
 
@@ -50,8 +51,10 @@ const ProjectCard = ({
             onClick={() => {
               window.open(demoLink, "_blank");
             }}
+            className="flex flex-row gap-x-1 items-center"
           >
-            <ThemedText>Ver demo</ThemedText>
+            <LuLink className="text-text-secondary" />
+            <ThemedText>Demo</ThemedText>
           </ThemedButton>
         )}
         {sourceLink && (

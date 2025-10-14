@@ -39,7 +39,7 @@ function App() {
       <Header />
       {/* Sección de presentación - Altura completa de la pantalla */}
 
-      <div className="h-[62vh] mt-10 md:mt-0 md:min-h-screen flex flex-col  ">
+      <div className="h-fit py-10 mt-10 md:mt-0 md:min-h-screen flex flex-col  ">
         {/* Contenido principal que ocupa el resto del espacio */}
         <div
           id="section1"

@@ -1,6 +1,9 @@
+import { useTranslation } from "react-i18next";
 import { FaGithub, FaLinkedin } from "react-icons/fa6";
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   //Anio actual
   const currentYear = new Date().getFullYear();
 
@@ -21,7 +24,7 @@ const Footer = () => {
   return (
     <div className="bg-background w-full h-fit p-10 flex justify-between ">
       <p className="text-text-secondary">
-        &copy; {currentYear} - Daniel Martos - All rights reserved
+        &copy; {currentYear} - Daniel Martos - {t("footer.copyright")}
       </p>
       <div className="flex justify-center space-x-6">
         {social.map((soc) => (

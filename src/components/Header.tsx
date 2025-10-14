@@ -1,23 +1,36 @@
-import { useState } from "react";
+import { useState, useEffect } from "react"; // Importa useEffect
 import { HiMenu, HiX } from "react-icons/hi";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useTranslation } from "react-i18next"; // 1. Importa el hook
 
-const titles = ["Home", "About", "Projects", "Contact"];
+// 2. Define la estructura de datos para la navegación
+const navItems = [
+  { key: "home", sectionId: "section1" },
+  { key: "about", sectionId: "section2" },
+  { key: "projects", sectionId: "section3" },
+  { key: "contact", sectionId: "section4" },
+];
 
 const Header = () => {
+  const { t } = useTranslation(); // 3. Llama al hook
   const [isOpen, setIsOpen] = useState(false);
-  // const [isActive, setIsActive] = useState(false);
-
-  // chanve nav when scroliong
   const [color, setColor] = useState(false);
-  const changeColor = () => {
-    if (window.scrollY >= 90) {
-      setColor(true);
-    } else {
-      setColor(false);
-    }
-  };
 
-  window.addEventListener("scroll", changeColor);
+  // NOTA: Es mejor usar useEffect para añadir y limpiar el event listener.
+  useEffect(() => {
+    const changeColor = () => {
+      if (window.scrollY >= 90) {
+        setColor(true);
+      } else {
+        setColor(false);
+      }
+    };
+    window.addEventListener("scroll", changeColor);
+    // Limpia el listener cuando el componente se desmonte
+    return () => {
+      window.removeEventListener("scroll", changeColor);
+    };
+  }, []); // El array vacío asegura que esto solo se ejecute una vez
 
   return (
     <div
@@ -39,78 +52,56 @@ const Header = () => {
         >
           {isOpen ? <HiX size={24} /> : <HiMenu size={24} />}
         </button>
-        {/* Desktop navigation */}
+        {/* ====== Desktop navigation ====== */}
         <nav className="hidden md:flex gap-x-4 items-center">
-          {titles.map((title, index) => (
+          {navItems.map((item) => (
             <p
-              key={index}
+              key={item.key} // Usa una key única
               className="text-text-primary hover:text-accent cursor-pointer"
               onClick={() => {
-                switch (index) {
-                  case 0:
-                    document.getElementById("section1")?.scrollIntoView();
-                    break;
-                  case 1:
-                    document.getElementById("section2")?.scrollIntoView();
-                    break;
-                  case 2:
-                    document.getElementById("section3")?.scrollIntoView();
-                    break;
-                  case 3:
-                    document.getElementById("section4")?.scrollIntoView();
-                    break;
-
-                  default:
-                    break;
-                }
+                document.getElementById(item.sectionId)?.scrollIntoView();
               }}
             >
-              {title}
+              {/* 4. Traduce usando la clave del objeto */}
+              {t(`header.nav.${item.key}`)}
             </p>
           ))}
+          {/* LanguageSwitcher se mueve fuera del nav para un mejor layout */}
         </nav>
+        <div className="hidden md:block">
+          <LanguageSwitcher />
+        </div>
       </div>
 
-      {/* Mobile dropdown */}
+      {/* ====== Mobile dropdown ====== */}
       <div
         className={
           `absolute bg-background top-full w-full bg-surface overflow-hidden transition-all duration-300 ease-out ` +
           (isOpen ? "max-h-60" : "max-h-0")
         }
       >
-        {titles.map((title, index) => (
-          <p
-            key={index}
-            className="text-text-primary text-right py-2 px-8 transform transition-all duration-300 ease-out"
-            style={{
-              transitionDelay: `${index * 100}ms`,
-              opacity: isOpen ? 1 : 0,
-              transform: isOpen ? "translateY(0)" : "translateY(-10px)",
-            }}
-            onClick={() => {
-              setIsOpen(false);
-              switch (index) {
-                case 0:
-                  document.getElementById("section1")?.scrollIntoView();
-                  break;
-                case 1:
-                  document.getElementById("section2")?.scrollIntoView();
-                  break;
-                case 2:
-                  document.getElementById("section3")?.scrollIntoView();
-                  break;
-                case 3:
-                  document.getElementById("section4")?.scrollIntoView();
-                  break;
-
-                default:
-                  break;
-              }
-            }}
-          >
-            {title}
-          </p>
-        ))}
+        <div className="flex flex-col items-end px-8 py-2">
+          {navItems.map((item, index) => (
+            <p
+              key={item.key}
+              className="text-text-primary py-2 transform transition-all duration-300 ease-out"
+              style={{
+                transitionDelay: `${index * 100}ms`,
+                opacity: isOpen ? 1 : 0,
+                transform: isOpen ? "translateY(0)" : "translateY(-10px)",
+              }}
+              onClick={() => {
+                setIsOpen(false);
+                document.getElementById(item.sectionId)?.scrollIntoView();
+              }}
+            >
+              {t(`header.nav.${item.key}`)}
+            </p>
+          ))}
+          <div className="pt-2">
+            <LanguageSwitcher />
+          </div>
+        </div>
       </div>
     </div>
   );

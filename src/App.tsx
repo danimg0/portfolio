@@ -1,4 +1,5 @@
 import Header from "./components/Header";
+import { useTranslation } from "react-i18next";
 import ThemedButton from "./components/ThemedButton";
 import ThemedCard from "./components/ThemedCard";
 import ThemedText from "./components/ThemedText";
@@ -9,7 +10,12 @@ import ProjectsSection from "./components/ProjectsSection";
 import ContactMeSection from "./components/ContactMeSection";
 import Footer from "./components/Footer";
 
+// initialized and ready to go!
+// i18next is already initialized, because the translation resources where passed via init function
+
 function App() {
+  const { t } = useTranslation();
+
   const [arrowOpacity, setArrowOpacity] = useState(1);
 
   const handleArrowOpacity = () => {
@@ -32,6 +38,7 @@ function App() {
     <div className="w-full bg-background">
       <Header />
       {/* Sección de presentación - Altura completa de la pantalla */}
+
       <div className="h-[62vh] mt-10 md:mt-0 md:min-h-screen flex flex-col  ">
         {/* Contenido principal que ocupa el resto del espacio */}
         <div
@@ -43,16 +50,12 @@ function App() {
             {/* intro */}
             <div className="md:w-1/2 flex justify-center flex-col gap-y-4 ">
               <ThemedText type="h1" className="font-bold" primary>
-                Hi! I'm Daniel
+                {t("hero.greeting")} {/* Se usa t('key') para traducir */}
               </ThemedText>
               <ThemedText type="semibold" primary>
-                Multiplatform developer and Psychologist
+                {t("hero.role")}
               </ThemedText>
-              <ThemedText>
-                I'm passionate about programming, especially with React, React
-                Native, and Tailwind CSS. My background in psychology helps me
-                better understand users and create more intuitive experiences.
-              </ThemedText>
+              <ThemedText>{t("hero.intro")}</ThemedText>
               <div className="flex flex-row gap-x-4 mt-5">
                 <ThemedButton
                   onClick={() => {
@@ -60,7 +63,7 @@ function App() {
                   }}
                 >
                   <ThemedText type="semibold" primary>
-                    Contact me
+                    {t("hero.contactButton")}
                   </ThemedText>
                 </ThemedButton>
                 <ThemedButton
@@ -69,7 +72,7 @@ function App() {
                   }}
                   type="secondary"
                 >
-                  <ThemedText>See projects</ThemedText>
+                  <ThemedText>{t("hero.projectsButton")}</ThemedText>
                 </ThemedButton>
               </div>
             </div>

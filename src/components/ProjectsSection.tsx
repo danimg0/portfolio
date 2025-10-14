@@ -1,44 +1,59 @@
 import ProjectCard from "./ProjectCard";
 import ThemedText from "./ThemedText";
+import { useTranslation } from "react-i18next";
+
+// 1. Create a data structure for your projects.
+// This separates the data from the component's logic.
+const projectsData = [
+  {
+    key: "tinyDetails",
+    imageLocation: "/llaveros.jpg",
+    tags: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Node.js",
+      "PostgreSQL",
+      "Spotify API",
+    ],
+    demoLink: "https://tinydetails.vercel.app/",
+  },
+  {
+    key: "barberApp",
+    imageLocation: "/barber.jpg",
+    tags: ["React Native", "NativeWind", "Expo", "PostgreSQL", "Next.js"],
+    demoLink: "https://barber-app.expo.app/",
+  },
+  {
+    key: "portfolio",
+    imageLocation: "/coding-man.jpg",
+    tags: ["React", "TailwindCSS", "Vite"],
+    demoLink: "https://portfolio-dani.vercel.app/",
+  },
+];
 
 const ProjectsSection = () => {
+  // 2. Get the translation function.
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center w-full px-8 md:px-40">
       <ThemedText type="h2" primary>
-        Projects
+        {t("projects.title")}
       </ThemedText>
       <div className="w-full py-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <ProjectCard
-          title="TinyDetails"
-          imageLocation="/llaveros.jpg"
-          description="E-commerce for personalized 3D printed keychains. Includes integration with the Spotify API to select songs, order and payment management (simulated). Full-Stack project."
-          tags={[
-            "React",
-            "TypeScript",
-            "Next.js",
-            "Node.js",
-            "PostgreSQL",
-            "Spotify API",
-          ]}
-          //  sourceLink="https://github.com/user/task-manager"
-          demoLink="https://tinydetails.vercel.app/"
-        />
-        <ProjectCard
-          title="BarberApp - Appointment Management"
-          imageLocation="/barber.jpg"
-          description="Mobile application for booking appointments at barbershops. Includes an administration and employee panel. Clients can choose a barber, select services, and book appointments, showing only available days and times based on the duration of the services. Available on web and Android."
-          tags={["React Native", "NativeWind", "Expo", "PostgreSQL", "Next.js"]}
-          // sourceLink="https://github.com/user/barberapp"
-          demoLink="https://barber-app.expo.app/"
-        />
-        <ProjectCard
-          title="Personal Portfolio"
-          imageLocation="/coding-man.jpg"
-          description="Personal portfolio developed with React and TailwindCSS. It presents my projects, professional experience, and contact information. Responsive design, adapting to any device. The code is structured to facilitate scalability and maintenance, using good frontend development practices. In addition, it incorporates reusable components and efficient state management."
-          tags={["React", "TailwindCSS", "Vite"]}
-          // sourceLink="https://github.com/user/portfolio"
-          demoLink="https://portfolio-dani.vercel.app/"
-        />
+        {/* 3. Map over the data array to render each project card. */}
+        {projectsData.map((project) => (
+          <ProjectCard
+            key={project.key}
+            // Use the key to build the translation path dynamically.
+            title={t(`projects.cards.${project.key}.title`)}
+            description={t(`projects.cards.${project.key}.description`)}
+            imageLocation={project.imageLocation}
+            tags={project.tags}
+            demoLink={project.demoLink}
+          />
+        ))}
       </div>
     </div>
   );

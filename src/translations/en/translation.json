@@ -1,0 +1,171 @@
+{
+  "header": {
+    "nav": {
+      "home": "Home",
+      "about": "About",
+      "projects": "Projects",
+      "contact": "Contact"
+    }
+  },
+  "hero": {
+    "greeting": "Hi! I'm Daniel",
+    "role": "Multiplatform developer and Psychologist",
+    "intro": "I'm passionate about programming, especially with React, React Native, and Tailwind CSS. My background in psychology helps me better understand users and create more intuitive experiences.",
+    "contactButton": "Contact me",
+    "projectsButton": "See projects"
+  },
+  "about": {
+    "title": "About me",
+    "tabs": {
+      "whoAmI": "Who I Am",
+      "skills": "Skills",
+      "education": "Education"
+    },
+    "whoAmI": {
+      "cards": {
+        "psychology": {
+          "title": "Psychology Background",
+          "description": "My background in psychology gives me unique insights into user behavior and experience design. I understand how people interact with technology and can create more intuitive interfaces."
+        },
+        "developer": {
+          "title": "Full-Stack Developer",
+          "description": "I specialize in modern web and mobile development using React, React Native, and TypeScript. I love building scalable applications with clean, maintainable code."
+        },
+        "learner": {
+          "title": "Continuous Learner",
+          "description": "Technology evolves rapidly, and I'm passionate about staying current. I continuously learn new frameworks, tools, and best practices to deliver cutting-edge solutions."
+        }
+      }
+    },
+    "skills": {
+      "technicalTitle": "Technical Skills",
+      "softTitle": "Soft Skills",
+      "softSkills": {
+        "problemSolving": {
+          "title": "Problem Solving",
+          "description": "Analytical approach to complex technical challenges"
+        },
+        "communication": {
+          "title": "Communication",
+          "description": "Clear technical and non-technical communication"
+        },
+        "collaboration": {
+          "title": "Team Collaboration",
+          "description": "Effective work in cross-functional teams"
+        },
+        "adaptability": {
+          "title": "Adaptability",
+          "description": "Quick learning of new technologies and methodologies"
+        },
+        "timeManagement": {
+          "title": "Time Management",
+          "description": "Efficient project delivery within deadlines"
+        },
+        "criticalThinking": {
+          "title": "Critical Thinking",
+          "description": "Analytical evaluation of solutions and approaches"
+        }
+      }
+    },
+    "education": {
+      "cards": {
+        "multiplatform": {
+          "title": "Multiplatform Application Development",
+          "institution": "IES Laguna de Tollón",
+          "highlight": "Full-Stack development with modern technologies and agile methodologies",
+          "learnings": [
+            "Java and object-oriented programming",
+            "React and modern interface development",
+            "React Native for mobile applications",
+            "Relational and NoSQL databases",
+            "REST APIs and web services",
+            "Version control with Git",
+            "Agile methodologies (Scrum)",
+            "Testing and software quality"
+          ]
+        },
+        "masters": {
+          "title": "Master's in General Health Psychology",
+          "institution": "University of Huelva",
+          "highlight": "Specialization in clinical intervention and psychological assessment",
+          "learnings": [
+            "Clinical assessment and diagnosis",
+            "Psychological intervention techniques",
+            "Psychopathology and mental disorders",
+            "Professional ethics and deontology",
+            "Health psychology",
+            "Clinical interview techniques",
+            "Intervention program design",
+            "Applied clinical research"
+          ]
+        },
+        "bachelors": {
+          "title": "Bachelor's Degree in Psychology",
+          "institution": "University of Huelva",
+          "highlight": "Understanding human behavior applied to UX/UI design",
+          "learnings": [
+            "Cognitive psychology and perception",
+            "Research methodology",
+            "Statistics and data analysis",
+            "Social and occupational psychology",
+            "Neuropsychology",
+            "Psychological assessment",
+            "Experimental design",
+            "User behavior analysis"
+          ]
+        }
+      }
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "cards": {
+      "tinyDetails": {
+        "title": "TinyDetails",
+        "description": "E-commerce for personalized 3D printed keychains. Includes integration with the Spotify API to select songs, order and payment management (simulated). Full-Stack project."
+      },
+      "barberApp": {
+        "title": "BarberApp - Appointment Management",
+        "description": "Mobile application for booking appointments at barbershops. Includes an administration and employee panel. Clients can choose a barber, select services, and book appointments, showing only available days and times based on the duration of the services. Available on web and Android."
+      },
+      "portfolio": {
+        "title": "Personal Portfolio",
+        "description": "Personal portfolio developed with React and TailwindCSS. It presents my projects, professional experience, and contact information. Responsive design, adapting to any device. The code is structured to facilitate scalability and maintenance, using good frontend development practices. In addition, it incorporates reusable components and efficient state management."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "info": {
+      "title": "Contact Information",
+      "emailLabel": "Email",
+      "socialLabel": "Social Media",
+      "responseTime": {
+        "title": "Response time",
+        "text": "I typically reply within 24 hours on business days."
+      }
+    },
+    "form": {
+      "name": {
+        "label": "Your name",
+        "placeholder": "Mike"
+      },
+      "email": {
+        "label": "Your email",
+        "placeholder": "example@gmail.com"
+      },
+      "subject": {
+        "label": "Subject",
+        "placeholder": "Job opportunity / Collaboration..."
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Tell me about your project and what you're looking to achieve..."
+      },
+      "sendButton": "Send Message"
+    }
+  },
+  "footer": {
+    "copyright": "All rights reserved"
+  }
+}

@@ -1,0 +1,171 @@
+{
+  "header": {
+    "nav": {
+      "home": "Inicio",
+      "about": "Sobre mí",
+      "projects": "Proyectos",
+      "contact": "Contacto"
+    }
+  },
+  "hero": {
+    "greeting": "¡Hola! Soy Daniel",
+    "role": "Desarrollador Multiplataforma y Psicólogo",
+    "intro": "Me apasiona la programación, especialmente con React, React Native y Tailwind CSS. Mi formación en psicología me ayuda a entender mejor a los usuarios y a crear experiencias más intuitivas.",
+    "contactButton": "Contáctame",
+    "projectsButton": "Ver proyectos"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "tabs": {
+      "whoAmI": "Quién Soy",
+      "skills": "Habilidades",
+      "education": "Educación"
+    },
+    "whoAmI": {
+      "cards": {
+        "psychology": {
+          "title": "Formación en Psicología",
+          "description": "Mi experiencia en psicología me proporciona una visión única sobre el comportamiento del usuario y el diseño de experiencias. Entiendo cómo las personas interactúan con la tecnología y puedo crear interfaces más intuitivas."
+        },
+        "developer": {
+          "title": "Desarrollador Full-Stack",
+          "description": "Me especializo en el desarrollo web y móvil moderno utilizando React, React Native y TypeScript. Me encanta construir aplicaciones escalables con código limpio y mantenible."
+        },
+        "learner": {
+          "title": "Aprendizaje Continuo",
+          "description": "La tecnología evoluciona rápidamente y me apasiona mantenerme actualizado. Aprendo continuamente nuevos frameworks, herramientas y buenas prácticas para ofrecer soluciones de vanguardia."
+        }
+      }
+    },
+    "skills": {
+      "technicalTitle": "Habilidades Técnicas",
+      "softTitle": "Habilidades Blandas",
+      "softSkills": {
+        "problemSolving": {
+          "title": "Resolución de Problemas",
+          "description": "Enfoque analítico para desafíos técnicos complejos"
+        },
+        "communication": {
+          "title": "Comunicación",
+          "description": "Comunicación clara, tanto técnica como no técnica"
+        },
+        "collaboration": {
+          "title": "Colaboración en Equipo",
+          "description": "Trabajo efectivo en equipos multifuncionales"
+        },
+        "adaptability": {
+          "title": "Adaptabilidad",
+          "description": "Aprendizaje rápido de nuevas tecnologías y metodologías"
+        },
+        "timeManagement": {
+          "title": "Gestión del Tiempo",
+          "description": "Entrega eficiente de proyectos dentro de los plazos"
+        },
+        "criticalThinking": {
+          "title": "Pensamiento Crítico",
+          "description": "Evaluación analítica de soluciones y enfoques"
+        }
+      }
+    },
+    "education": {
+      "cards": {
+        "multiplatform": {
+          "title": "Desarrollo de Aplicaciones Multiplataforma",
+          "institution": "IES Laguna de Tollón",
+          "highlight": "Desarrollo Full-Stack con tecnologías modernas y metodologías ágiles",
+          "learnings": [
+            "Java y programación orientada a objetos",
+            "React y desarrollo de interfaces modernas",
+            "React Native para aplicaciones móviles",
+            "Bases de datos relacionales y NoSQL",
+            "APIs REST y servicios web",
+            "Control de versiones con Git",
+            "Metodologías ágiles (Scrum)",
+            "Testing y calidad de software"
+          ]
+        },
+        "masters": {
+          "title": "Máster en Psicología General Sanitaria",
+          "institution": "Universidad de Huelva",
+          "highlight": "Especialización en intervención clínica y evaluación psicológica",
+          "learnings": [
+            "Evaluación y diagnóstico clínico",
+            "Técnicas de intervención psicológica",
+            "Psicopatología y trastornos mentales",
+            "Ética y deontología profesional",
+            "Psicología de la salud",
+            "Técnicas de entrevista clínica",
+            "Diseño de programas de intervención",
+            "Investigación clínica aplicada"
+          ]
+        },
+        "bachelors": {
+          "title": "Grado en Psicología",
+          "institution": "Universidad de Huelva",
+          "highlight": "Comprensión del comportamiento humano aplicado al diseño UX/UI",
+          "learnings": [
+            "Psicología cognitiva y percepción",
+            "Metodología de la investigación",
+            "Estadística y análisis de datos",
+            "Psicología social y del trabajo",
+            "Neuropsicología",
+            "Evaluación psicológica",
+            "Diseño experimental",
+            "Análisis del comportamiento del usuario"
+          ]
+        }
+      }
+    }
+  },
+  "projects": {
+    "title": "Proyectos",
+    "cards": {
+      "tinyDetails": {
+        "title": "TinyDetails",
+        "description": "E-commerce de llaveros personalizados impresos en 3D. Incluye integración con la API de Spotify para seleccionar canciones, gestión de pedidos y pagos (simulado). Proyecto Full-Stack."
+      },
+      "barberApp": {
+        "title": "BarberApp - Gestión de Citas",
+        "description": "Aplicación móvil para la reserva de citas en barberías. Incluye panel de administración y de empleado. Los clientes pueden elegir barbero, seleccionar servicios y reservar, mostrando solo días y horas disponibles según la duración de los servicios. Disponible en web y Android."
+      },
+      "portfolio": {
+        "title": "Portfolio Personal",
+        "description": "Portfolio personal desarrollado con React y TailwindCSS. Presenta mis proyectos, experiencia profesional y datos de contacto. Diseño responsive, adaptándose a cualquier dispositivo. El código está estructurado para facilitar la escalabilidad y el mantenimiento, empleando buenas prácticas de desarrollo frontend. Además, incorpora componentes reutilizables y una gestión eficiente del estado."
+      }
+    }
+  },
+  "contact": {
+    "title": "Contáctame",
+    "info": {
+      "title": "Información de Contacto",
+      "emailLabel": "Correo electrónico",
+      "socialLabel": "Redes Sociales",
+      "responseTime": {
+        "title": "Tiempo de respuesta",
+        "text": "Normalmente respondo en 24 horas en días laborables."
+      }
+    },
+    "form": {
+      "name": {
+        "label": "Tu nombre",
+        "placeholder": "Miguel"
+      },
+      "email": {
+        "label": "Tu correo",
+        "placeholder": "ejemplo@gmail.com"
+      },
+      "subject": {
+        "label": "Asunto",
+        "placeholder": "Oportunidad de trabajo / Colaboración..."
+      },
+      "message": {
+        "label": "Mensaje",
+        "placeholder": "Cuéntame sobre tu proyecto y lo que buscas conseguir..."
+      },
+      "sendButton": "Enviar Mensaje"
+    }
+  },
+  "footer": {
+    "copyright": "Todos los derechos reservados"
+  }
+}

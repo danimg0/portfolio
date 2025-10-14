@@ -7,12 +7,15 @@ import { BiMessage } from "react-icons/bi";
 import ThemedButton from "./ThemedButton";
 import { GrGithub } from "react-icons/gr";
 import { LiaLinkedin } from "react-icons/lia";
+import { useTranslation } from "react-i18next";
 
 const ContactMeSection = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center w-full px-8 md:px-40">
       <ThemedText type="h2" primary>
-        Contact Me
+        {t("contact.title")}
       </ThemedText>
       <div className="flex mt-8 flex-col md:flex-row justify-center gap-8 w-full">
         {/* ====== Left Column: Contact Info ====== */}
@@ -20,21 +23,24 @@ const ContactMeSection = () => {
           <ContactCard>
             <div className="flex flex-col gap-4">
               <ThemedText type="h3" primary>
-                Contact Information
+                {t("contact.info.title")}
               </ThemedText>
               <div className="flex items-center gap-4 rounded-lg p-2 bg-background w-fit">
                 <div className="p-3 bg-teal-800 rounded-lg">
                   <MdEmail className="text-accent" />
                 </div>
                 <div className="flex flex-col">
-                  <ThemedText primary>Email</ThemedText>
+                  <ThemedText primary>
+                    {t("contact.info.emailLabel")}
+                  </ThemedText>
+                  {/* The email address itself is not translated */}
                   <ThemedText>daniel.martos@hotmail.com</ThemedText>
                 </div>
               </div>
             </div>
             <div className="mt-4">
               <ThemedText primary type="semibold">
-                Social Media
+                {t("contact.info.socialLabel")}
               </ThemedText>
               <div className="flex items-center gap-4 mt-2">
                 <a
@@ -62,11 +68,9 @@ const ContactMeSection = () => {
           <ContactCard>
             <div className="flex flex-col gap-2">
               <ThemedText primary type="semibold">
-                Response time
+                {t("contact.info.responseTime.title")}
               </ThemedText>
-              <ThemedText>
-                I typically reply within 24 hours on business days.
-              </ThemedText>
+              <ThemedText>{t("contact.info.responseTime.text")}</ThemedText>
             </div>
           </ContactCard>
         </div>
@@ -79,36 +83,38 @@ const ContactMeSection = () => {
                 <ThemedInput
                   icon={<PiPerson />}
                   inputType="text"
-                  placeholder="Mike"
-                  title="Your name"
+                  placeholder={t("contact.form.name.placeholder")}
+                  title={t("contact.form.name.label")}
                   name="name"
                 />
                 <ThemedInput
                   icon={<PiVoicemail />}
                   inputType="email"
-                  placeholder="example@gmail.com"
-                  title="Your email"
+                  placeholder={t("contact.form.email.placeholder")}
+                  title={t("contact.form.email.label")}
                   name="email"
                 />
               </div>
               <ThemedInput
                 icon={<MdTitle />}
                 inputType="text"
-                placeholder="Job opportunity / Collaboration..."
-                title="Subject"
+                placeholder={t("contact.form.subject.placeholder")}
+                title={t("contact.form.subject.label")}
                 name="subject"
               />
               <ThemedInput
                 icon={<BiMessage />}
                 big
                 inputType="text"
-                placeholder="Tell me about your project and what you're looking to achieve..."
-                title="Message"
+                placeholder={t("contact.form.message.placeholder")}
+                title={t("contact.form.message.label")}
                 name="message"
               />
               <div className="flex justify-end mt-4">
                 <ThemedButton onClick={() => {}}>
-                  <ThemedText primary>Send Message</ThemedText>
+                  <ThemedText primary>
+                    {t("contact.form.sendButton")}
+                  </ThemedText>
                 </ThemedButton>
               </div>
             </div>

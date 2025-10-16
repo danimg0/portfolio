@@ -165,6 +165,21 @@
       "sendButton": "Enviar Mensaje"
     }
   },
+  "alert": {
+    "succes": {
+      "title": "Envio exitoso",
+      "description": "Correo enviado con éxito. Me pondré en contacto con usted en la mayor brevedad posible."
+    },
+    "incomplete": {
+      "title": "Formulario incompleto",
+      "description": "Todos los campos del formulario deben estar completos."
+    },
+    "failed": {
+      "title": "Envio fallido",
+      "description": "Ha ocurrido un error al enviar el correo. Vuelva a intentarlo o contacte directamente por la aplicación de correos"
+    },
+    "button": "Aceptar"
+  },
   "footer": {
     "copyright": "Todos los derechos reservados"
   }

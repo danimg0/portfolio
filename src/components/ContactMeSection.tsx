@@ -10,9 +10,22 @@ import { LiaLinkedin } from "react-icons/lia";
 import { useTranslation } from "react-i18next";
 import emailjs from "emailjs-com";
 import { useState, type ChangeEvent } from "react";
+import ThemedAlert from "./ThemedAlert";
 
 const ContactMeSection = () => {
   const { t } = useTranslation();
+  // Estado para controlar la visibilidad y el contenido de la alerta
+  const [alertState, setAlertState] = useState<{
+    active: boolean;
+    // type: "success" | "error" | "info";
+    title: string;
+    description: string;
+  }>({
+    active: false,
+    // type: "info",
+    title: "",
+    description: "",
+  });
 
   const [inputs, setInputs] = useState({
     name: "",
@@ -21,6 +34,14 @@ const ContactMeSection = () => {
     message: "",
   });
 
+  //Manejo de alerta
+  const showAlert = (title: string, description: string) => {
+    setAlertState({ active: true, title, description });
+  };
+
+  const closeAlert = () => {
+    setAlertState({ ...alertState, active: false });
+  };
   //Manejo de inputs
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -38,7 +59,7 @@ const ContactMeSection = () => {
     e.preventDefault();
 
     if (!inputs.name || !inputs.email || !inputs.title || !inputs.message) {
-      alert("Todos los campos deben estar completos");
+      showAlert(t("alert.incomplete.title"), t("alert.incomplete.description"));
       return;
     }
 
@@ -49,17 +70,24 @@ const ContactMeSection = () => {
     emailjs.send(SERVICE_ID, TEMPLATE_ID, inputs, USER_ID).then(
       () => {
         resetInputs();
-        alert("Correo enviado");
+        showAlert(t("alert.success.title"), t("alert.success.description"));
       },
       (err) => {
         console.log("FAILED...", err);
-        alert("Error al enviar el correo");
+        showAlert(t("alert.error.description"), t("alert.error.description"));
       }
     );
   };
 
   return (
     <div className="flex flex-col items-center w-full px-8 md:px-40">
+      {alertState.active && (
+        <ThemedAlert
+          title={alertState.title}
+          description={alertState.description}
+          onClose={() => closeAlert()}
+        />
+      )}
       <ThemedText type="h2" primary>
         {t("contact.title")}
       </ThemedText>

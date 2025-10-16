@@ -165,6 +165,21 @@
       "sendButton": "Send Message"
     }
   },
+  "alert": {
+    "success": {
+      "title": "Message Sent!",
+      "description": "Your message has been sent successfully. I will get back to you as soon as possible."
+    },
+    "incomplete": {
+      "title": "Incomplete Form",
+      "description": "Please fill out all fields before submitting."
+    },
+    "failed": {
+      "title": "Sending Failed",
+      "description": "An error occurred while sending your message. Please try again or contact me directly via email."
+    },
+    "button": "Got it"
+  },
   "footer": {
     "copyright": "All rights reserved"
   }

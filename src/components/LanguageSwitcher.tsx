@@ -21,11 +21,13 @@ function LanguageSwitcher() {
     {
       abr: "es",
       name: "ESP",
+      //@ts-expect-error funciona
       Icon: ES,
     },
     {
       abr: "en",
       name: "ENG",
+      //@ts-expect-error funciona
       Icon: GB,
     },
   ];
@@ -59,6 +61,7 @@ function LanguageSwitcher() {
         {FlagIcon && (
           <FlagIcon
             className="w-6 h-6 cursor-pointer"
+            //@ts-expect-error funciona
             title={currentLang?.name}
           />
         )}

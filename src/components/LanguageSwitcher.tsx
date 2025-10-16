@@ -2,11 +2,10 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ES, GB } from "country-flag-icons/react/3x2";
 
-// 1. Define el tipo una sola vez
 type Language = {
   abr: string;
   name: string;
-  Icon: React.FC; // O React.ComponentType
+  Icon: React.FC<React.SVGProps<SVGSVGElement>>; // Tipo más específico para los props de SVG
 };
 
 function LanguageSwitcher() {
@@ -35,14 +34,17 @@ function LanguageSwitcher() {
   const FlagIcon = currentLang?.Icon;
 
   const LanSelect = ({ lan }: { lan: Language }) => (
-    <div className="flex flex-row justify-center w-16 gap-x-2 cursor-context-menu">
+    <div
+      onClick={() => handleLanguageChange(lan.abr)}
+      className="flex flex-row justify-center w-16 gap-x-2 cursor-pointer p-1 rounded-md hover:bg-background"
+    >
       <div className="w-6 h-6">
         <lan.Icon />
       </div>
       <div
         className={`text-xs ${
           lan.abr === i18n.language
-            ? "text-text-primary"
+            ? "text-text-primary font-semibold"
             : "text-text-secondary"
         }`}
       >
@@ -56,39 +58,31 @@ function LanguageSwitcher() {
       <div onClick={() => setOpenLangMenu(!openLangMenu)}>
         {FlagIcon && (
           <FlagIcon
-            //@ts-expect-error funciona asi
             className="w-6 h-6 cursor-pointer"
-            title={currentLang.name}
+            title={currentLang?.name}
           />
         )}
       </div>
-      {/* Menu despegable */}
-      {openLangMenu && (
-        <div className="absolute h-fit mt-3 right-0.5 p-1 pt-2.5  rounded-md bg-primary">
+
+      {/* CAMBIO 1: Eliminamos el renderizado condicional '&&' y aplicamos clases dinámicas */}
+      <div
+        className={`absolute h-fit mt-3 right-0.5 p-1 rounded-md bg-primary 
+          transition-all duration-300 ease-in-out transform
+          ${
+            openLangMenu
+              ? "opacity-100 scale-100 pointer-events-auto"
+              : "opacity-0 scale-95 pointer-events-none -translate-y-2"
+          }
+        `}
+      >
+        <div className="flex flex-col gap-1">
           {languages.map((lan) => (
-            <div onClick={() => handleLanguageChange(lan.abr)}>
-              <LanSelect key={lan.abr} lan={lan} />
-            </div>
+            // CAMBIO 2: La key debe estar en el elemento que se itera, en este caso LanSelect
+            <LanSelect key={lan.abr} lan={lan} />
           ))}
         </div>
-      )}
+      </div>
     </div>
-    // <div className="flex text-white gap-x-2">
-    //   <button
-    //     onClick={() => handleLanguageChange("en")}
-    //     disabled={i18n.language === "en"}
-    //     className="disabled:opacity-50"
-    //   >
-    //     🇬🇧 EN
-    //   </button>
-    //   <button
-    //     onClick={() => handleLanguageChange("es")}
-    //     disabled={i18n.language === "es"}
-    //     className="disabled:opacity-50"
-    //   >
-    //     🇪🇸 ES
-    //   </button>
-    // </div>
   );
 }
 

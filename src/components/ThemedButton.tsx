@@ -2,7 +2,8 @@ interface Props {
   className?: string;
   type?: "primary" | "secondary";
   children: React.ReactNode;
-  onClick: () => void;
+  onClick?: () => void;
+  submit?: boolean;
 }
 
 const ThemedButton: React.FC<Props> = ({
@@ -10,6 +11,7 @@ const ThemedButton: React.FC<Props> = ({
   onClick,
   className,
   type = "primary",
+  submit,
 }) => {
   return (
     <div onClick={onClick}>
@@ -20,6 +22,7 @@ const ThemedButton: React.FC<Props> = ({
           ? "bg-accent hover:shadow-background  "
           : "ring-1 ring-accent background hover:shadow-secondary "
       }`}
+        type={submit ? "submit" : "button"}
       >
         {children}
       </button>

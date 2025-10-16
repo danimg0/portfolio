@@ -1,9 +1,9 @@
 import { useTranslation } from "react-i18next";
 import ThemedButton from "./ThemedButton";
 import ThemedText from "./ThemedText";
-import { MdClose } from "react-icons/md";
 
 type AlertProps = {
+  active: boolean;
   title?: string;
   description?: string;
   onClose: () => void; // Función para cerrar el alert
@@ -11,6 +11,7 @@ type AlertProps = {
 };
 
 const ThemedAlert = ({
+  active,
   title,
   description,
   onClose,
@@ -26,10 +27,27 @@ AlertProps) => {
 
   return (
     //Overlay para disfuminar
-    <div className="fixed inset-0 bg-opacity-50 backdrop-blur-sm flex justify-center items-center z-50">
+    <div
+      onClick={onClose}
+      className={`fixed inset-0 flex justify-center items-center z-50 transition-opacity duration-300 ease-in-out ${
+        active
+          ? " bg-opacity-50 backdrop-blur-sm"
+          : "bg-opacity-0 bg-transparent pointer-events-none"
+      }`}
+    >
       {/* Contenedor alert */}
       <div
-        className={`transitio-all ease-in duration-300 border border-accent bg-primary relative max-w-sm w-full p-6 rounded-md shadow-2xl flex flex-col gap-2 `}
+        onClick={(e) => {
+          e.stopPropagation();
+        }}
+        className={` border border-accent bg-primary relative max-w-sm w-full p-6 rounded-md shadow-2xl flex flex-col gap-2 
+            transition-all ease-in-out duration-300 transform
+            ${
+              active
+                ? "opacity-100 translate-y-0 scale-100"
+                : "opacity-0 -translate-y-10 scale-95"
+            }
+            `}
       >
         <ThemedText primary type="h3">
           {title}

@@ -14,6 +14,7 @@ import ThemedAlert from "./ThemedAlert";
 
 const ContactMeSection = () => {
   const { t } = useTranslation();
+  const [isAlertMounted, setIsAlertMounted] = useState(false);
   // Estado para controlar la visibilidad y el contenido de la alerta
   const [alertState, setAlertState] = useState<{
     active: boolean;
@@ -36,11 +37,17 @@ const ContactMeSection = () => {
 
   //Manejo de alerta
   const showAlert = (title: string, description: string) => {
-    setAlertState({ active: true, title, description });
+    setIsAlertMounted(true);
+    setTimeout(() => {
+      setAlertState({ active: true, title, description }); // 2. Activa la animación de entrada
+    }, 10);
   };
 
   const closeAlert = () => {
     setAlertState({ ...alertState, active: false });
+    setTimeout(() => {
+      setIsAlertMounted(false); // 2. Desmonta el componente del DOM después de la animación
+    }, 300);
   };
   //Manejo de inputs
   const handleInputChange = (
@@ -74,15 +81,16 @@ const ContactMeSection = () => {
       },
       (err) => {
         console.log("FAILED...", err);
-        showAlert(t("alert.error.description"), t("alert.error.description"));
+        showAlert(t("alert.failed.title"), t("alert.failed.description"));
       }
     );
   };
 
   return (
     <div className="flex flex-col items-center w-full px-8 md:px-40">
-      {alertState.active && (
+      {isAlertMounted && (
         <ThemedAlert
+          active={alertState.active}
           title={alertState.title}
           description={alertState.description}
           onClose={() => closeAlert()}

@@ -28,7 +28,7 @@ const projectsData = [
     key: "portfolio",
     imageLocation: "/coding-man.jpg",
     tags: ["React", "TailwindCSS", "Vite"],
-    demoLink: "https://portfolio-dani.vercel.app/",
+    demoLink: "https://danielmartos.vercel.app/",
   },
 ];
 
